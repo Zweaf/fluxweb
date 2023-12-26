@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://iflux.my.id/assets/flux.png" type="image/png">
+    <title>Flux Proxy</title>
+    <style>
+        @keyframes rainbow {
+            16.66%   { color: violet; }
+            16.66%   { color: indigo; }
+            33.33%   { color: blue; }
+            100%     { color: red; }
+        }
+
+        body {
+            background-color: #0D1517;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+    .side-menu {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0px;
+        left: 0px;
+        background-color: #203035;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        text-align: left;
+    }
+
+    .side-menu button {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        font-size: 30px;
+        margin-left: 50px;
+        background-color: transparent;
+        box-shadow: none;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .side-menu ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .side-menu li {
+        padding: 15px;
+        font-size: 18px;
+        color: #fff;
+        border-bottom: 1px solid #555;
+    }
+
+    .side-menu a {
+        text-decoration: none;
+        color: #818181;
+        transition: 0.3s;
+    }
+
+    .side-menu a:hover {
+        color: #f1f1f1;
+    }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0px 0px 0 rgba(0,0,0,0.2), 0 6px 12px 0 rgba(0,0,0,0.19);
+            background-color: #101a1d;
+        }
+
+        header img {
+            margin-right: 5px; /* Adjust as needed for spacing between image and text */
+            max-height: 30px; /* Set a maximum height for the image */
+            width: auto;
+        }
+        
+        .header-text h2 {
+            color: #ff0000;
+            animation: rainbow 3s linear infinite;
+        }
+        .header-text .sub-text {
+            font-size: 12px;
+        }
+       
+        .cookie-snackbar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #172529;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    }
+
+    .cookie-content {
+        display: flex;
+        margin-left: 10px;
+        color: #ffffff;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11px;
+    }
+    
+    .cookie-content a {
+    color: hsl(204, 100%, 50%); /* Set the link color */
+    text-decoration: underline; /* Underline the link */
+    margin-right: auto; /* Add margin for spacing */
+    margin-left: 5px;
+
+}
+
+    .cookie-content button {
+        background-color: rgb(51, 255, 0);
+        color: #000000;
+        border: none;
+        padding: 8px 8px;
+        margin-right: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        display: inline-block;
+    }
+
+    .cookie-content button:focus {
+    outline: none;
+}
+
+        .button-text {
+            flex: 1;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Align content to the right */
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            width: 150px;
+            opacity: 0.8;
+            border-radius: 6px;
+            position: relative;
+        }
+        
+        button img {
+            max-height: 20px;
+            width: auto;
+        }
+
+        .vertical-center {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Updated to center vertically */
+            align-items: center;
+            flex: 1;
+        }
+        .info-cards-container {
+            display: flex;
+            justify-content: space-around; /* Adjust as needed for spacing between cards */
+            align-items: center;
+            flex-direction: row; /* Arrange cards horizontally */
+        }
+        .info-card {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center items horizontally */
+            background-color: #172529;
+            color: #fff;
+            border: 0px solid #555;
+            border-radius: 6px;
+            padding: 5px;
+            margin: 10px auto; /* Center the card horizontally */
+            width: 100px;
+            max-height: 50px;
+            text-align: left; /* Align text to the left within the card */
+        }
+
+        .info-card .icon {
+            margin-bottom: -4px;
+            margin-right: 10px;
+            align-items: center;
+            justify-content: center;
+            /* You can style the icon/image size and positioning here */
+        }
+
+        .info-card p {
+            font-size: 16px;
+            margin: auto;
+        }
+
+
+
+        footer {
+            padding: 10px;
+            background-color: #0D1517;
+            text-align: center;
+            font-size: 10px;
+            flex-shrink: 0; 
+            margin-bottom: 10px;
+        }
+       
+        footer p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <button onclick="toggleSideMenu()" style="flex: 0; width: 40px; height: 40px; padding: 5px; font-size: 20px; background-color: rgba(0, 123, 255, 0); box-shadow: none;">☰</button>
+        <span style="font-size: 1px; flex: 1;"></span>
+        <img src="https://iflux.my.id/assets/flux.png" alt="Flux Logo">
+        <span style="font-size: 20px;">Flux</span>
+        <span style="font-size: 1px; flex: 1;"></span>
+        <button onclick="toggleSideMenu()" style="flex: 0; width: 40px; height: 40px; padding: 5px; font-size: 20px; background-color: rgba(0, 123, 255, 0); color: rgba(255, 255, 255, 0); box-shadow: none;">☰</button>
+
+    </header>
+
+    <div class="header-text">
+        <h2>Best Growtopia Android Proxy</h2>
+        <p class="sub-text">64-bit support, easy setup, secured integrated private server</ps>
+        </div>
+
+    <div id="side-menu" class="side-menu">
+        <button onclick="toggleSideMenu()" class="close-btn">×</button>
+        <ul>
+            <li><a href="#">Menu Item 1</a></li>
+            <li><a href="#">Menu Item 2</a></li>
+            <!-- Add more menu items as needed -->
+        </ul>
+    </div>
+ <div class="info-cards-container">
+        <div class="info-card">
+            <div class="icon">
+                <!-- Add an icon/image for proxy -->
+                <img src="https://iflux.my.id/assets/flux.png" alt="Proxy Icon" width="40" height="40">
+            </div>
+            <div class="info">
+                <p>1.0.0</p>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">
+                <!-- Add an icon/image for Growtopia -->
+                <img src="https://iflux.my.id/assets/growtopia.png" alt="Growtopia Icon" width="40" height="40">
+            </div>
+            <div class="info">
+                <p>4.44</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="vertical-center">
+        <button onclick="buttonClicked('Button 1')">
+            <span class="button-text">Localhost</span>
+            <img src="https://iflux.my.id/assets/android.png" alt="Android Logo">
+        </button>
+
+        <button onclick="buttonClicked('Button 2')">
+            <span class="button-text">Discord</span>
+            <img src="https://iflux.my.id/assets/discord.png" alt="Discord Logo">
+        </button>
+    </div>
+    <div id="cookie-snackbar" class="cookie-snackbar">
+        <div class="cookie-content">
+            This website uses cookies to store data. <a href="learn-more.html" target="_blank">Learn more</a>
+            <button onclick="acceptCookies()" style="width: 60px; height: 30px;">Accept</button>
+        </div>
+    </div>
+    <!-- Footer Section -->
+    <footer>
+        <p>Made with ♥️ by @flux.id</p>
+    </footer>
+    </body>
+    <script> 
+
+    function buttonClicked(buttonName) {
+            if (buttonName === 'Button 2') {
+                window.location.href = 'https://discord.gg/B7Mz5nucvv';
+            }
+            if (buttonName === 'Button 1') {
+                window.location.href = 'https://iflux.my.id/download/localhost.apk';
+            }
+    }
+
+    function toggleSideMenu() {
+        var sideMenu = document.getElementById("side-menu");
+        sideMenu.style.width = (sideMenu.style.width === "250px") ? "0" : "250px";
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+        if (!hasAcceptedCookies()) {
+            showCookieSnackbar();
+        }
+    });
+    
+    function hasAcceptedCookies() {
+        // Check if the user has accepted cookies (you can use cookies or localStorage for this)
+        // Return true if cookies are accepted, false otherwise
+        return localStorage.getItem("cookiesAccepted") === "true";
+    }
+    
+    function showCookieSnackbar() {
+        var snackbar = document.getElementById("cookie-snackbar");
+        snackbar.style.display = "block";
+    }
+    
+    function acceptCookies() {
+        // Set a flag indicating that the user has accepted cookies (you can use cookies or localStorage for this)
+        localStorage.setItem("cookiesAccepted", "true");
+    
+        // Hide the snackbar
+        document.getElementById("cookie-snackbar").style.display = "none";
+    }
+    
+    </script>
+</html>
