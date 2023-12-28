@@ -15,16 +15,17 @@
         }
 
         body {
-            background-color: #0D1517;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            text-align: center;
-        }
+    background-color: #0D1517;
+    color: #fff; /* Text color */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Fixed height of the body equal to the viewport height */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
 
     .side-menu {
         height: 100%;
@@ -76,27 +77,66 @@
     }
 
         header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 0px 0px 0 rgba(0,0,0,0.2), 0 6px 12px 0 rgba(0,0,0,0.19);
-            background-color: #101a1d;
-        }
+    display: flex;
+    justify-content: space-between; /* Adjust as needed */
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slightly adjust box-shadow */
+    background-color: #101a1d;
+    padding: none; /* Add padding for better spacing */
+}
 
-        header img {
-            margin-right: 5px; /* Adjust as needed for spacing between image and text */
-            max-height: 30px; /* Set a maximum height for the image */
-            width: auto;
-        }
+header img {
+    max-height: 30px;
+    width: auto;
+}
         
-        .header-text h2 {
-            color: #ff0000;
-            animation: rainbow 3s linear infinite;
-        }
-        .header-text .sub-text {
-            font-size: 12px;
-        }
-       
+.vertical-center {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    flex: 0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: none; /* Adjust margin as needed */
+}
+
+.tutorial-button,
+.pricing-button,
+.login-button {
+    background-color: transparent;
+    color: #fff;
+    box-shadow: none;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none; );
+    width: 150px;
+    opacity: 0.8;
+    border-radius: 6px;
+    position: relative;
+}
+
+.tutorial-button img,
+.pricing-button img,
+.login-button img {
+    max-height: 20px;
+    width: auto;
+}
+
+.tutorial-button:hover,
+.pricing-button:hover,
+.login-button:hover {
+    background-color: #2c3e50;
+    color: #fff;
+}
+
         .cookie-snackbar {
     display: none;
     position: fixed;
@@ -108,39 +148,6 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 1000;
     }
-
-    .cookie-content {
-        display: flex;
-        margin-left: 10px;
-        color: #ffffff;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 11px;
-    }
-    
-    .cookie-content a {
-    color: hsl(204, 100%, 50%); /* Set the link color */
-    text-decoration: underline; /* Underline the link */
-    margin-right: auto; /* Add margin for spacing */
-    margin-left: 5px;
-
-}
-
-    .cookie-content button {
-        background-color: rgb(51, 255, 0);
-        color: #000000;
-        border: none;
-        padding: 8px 8px;
-        margin-right: 10px;
-        cursor: pointer;
-        border-radius: 5px;
-        display: inline-block;
-    }
-
-    .cookie-content button:focus {
-    outline: none;
-}
-
         .button-text {
             flex: 1;
         }
@@ -156,7 +163,6 @@
             align-items: center;
             justify-content: flex-end; /* Align content to the right */
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-            width: 150px;
             opacity: 0.8;
             border-radius: 6px;
             position: relative;
@@ -167,56 +173,66 @@
             width: auto;
         }
 
-        .vertical-center {
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* Updated to center vertically */
-            align-items: center;
-            flex: 1;
-        }
-        .info-cards-container {
-            display: flex;
-            justify-content: space-around; /* Adjust as needed for spacing between cards */
-            align-items: center;
-            flex-direction: row; /* Arrange cards horizontally */
-        }
-        .info-card {
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Center items horizontally */
-            background-color: #172529;
-            color: #fff;
-            border: 0px solid #555;
-            border-radius: 6px;
-            padding: 5px;
-            margin: 10px auto; /* Center the card horizontally */
-            width: 100px;
-            max-height: 50px;
-            text-align: left; /* Align text to the left within the card */
-        }
+.banner-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: transparent;
+    padding: 20px;
+}
 
-        .info-card .icon {
-            margin-bottom: -4px;
-            margin-right: 10px;
-            align-items: center;
-            justify-content: center;
-            /* You can style the icon/image size and positioning here */
-        }
+.banner-section img {
+    max-width: 100%;
+    max-height: 200px; 
+    width: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
 
-        .info-card p {
-            font-size: 16px;
-            margin: auto;
-        }
+.banner-text {
+    text-align: center;
+    color: #fff;
+}
 
+.banner-text h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
 
+.banner-text p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
 
+.banner-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.banner-button:hover {
+    background-color: #2c3e50; 
+    color: #fff;
+}
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
         footer {
             padding: 10px;
             background-color: #0D1517;
             text-align: center;
             font-size: 10px;
             flex-shrink: 0; 
-            margin-bottom: 10px;
+            margin-bottom: 0px;
+            margin-top: auto;
         }
        
         footer p {
@@ -225,7 +241,7 @@
         }
     </style>
 </head>
-<body>
+<body class="smooth-scroll">
     
     <header>
         <button onclick="toggleSideMenu()" style="flex: 0; width: 40px; height: 40px; padding: 5px; font-size: 20px; background-color: rgba(0, 123, 255, 0); box-shadow: none;">☰</button>
@@ -237,10 +253,6 @@
 
     </header>
 
-    <div class="header-text">
-        <h2>Best Growtopia Android Proxy</h2>
-        <p class="sub-text">64-bit support, easy setup, secured integrated private server</ps>
-        </div>
 
     <div id="side-menu" class="side-menu">
         <button onclick="toggleSideMenu()" class="close-btn">×</button>
@@ -250,54 +262,61 @@
             <!-- Add more menu items as needed -->
         </ul>
     </div>
- <div class="info-cards-container">
-        <div class="info-card">
-            <div class="icon">
-                <!-- Add an icon/image for proxy -->
-                <img src="https://iflux.my.id/assets/flux.png" alt="Proxy Icon" width="40" height="40">
-            </div>
-            <div class="info">
-                <p>1.0.0</p>
-            </div>
-        </div>
 
-        <div class="info-card">
-            <div class="icon">
-                <!-- Add an icon/image for Growtopia -->
-                <img src="https://iflux.my.id/assets/growtopia.png" alt="Growtopia Icon" width="40" height="40">
-            </div>
-            <div class="info">
-                <p>4.44</p>
-            </div>
-        </div>
-    </div>
+<div class="button-container">
+    <button class="tutorial-button" onclick="buttonClicked('Tutorial')">
+        <span class="button-text">Tutorial</span>
+        <img src="https://iflux.my.id/assets/tutorial_icon.png" alt="Tutorial Icon">
+    </button>
 
-    <div class="vertical-center">
-        <button onclick="buttonClicked('Button 1')">
-            <span class="button-text">Localhost</span>
-            <img src="https://iflux.my.id/assets/android.png" alt="Android Logo">
-        </button>
+    <button class="pricing-button" onclick="buttonClicked('Pricing')">
+        <span class="button-text">Pricing</span>
+        <img src="https://iflux.my.id/assets/pricing_icon.png" alt="Pricing Icon">
+    </button>
 
-        <button onclick="buttonClicked('Button 2')">
-            <span class="button-text">Discord</span>
-            <img src="https://iflux.my.id/assets/discord.png" alt="Discord Logo">
-        </button>
+    <button class="login-button" onclick="buttonClicked('Login')">
+        <span class="button-text">Login</span>
+        <img src="https://iflux.my.id/assets/login_icon.png" alt="Login Icon">
+    </button>
+</div>
+
+
+<div class="banner-section">
+    <img src="https://iflux.my.id/assets/banner.jpg" alt="Banner Image">
+    <div class="banner-text">
+        <h3>Experience Flux Proxy</h3>
+        <p>Unlock a new level of gaming with our powerful Android Proxy. Download now!</p>
+        <a href="https://discord.gg/B7Mz5nucvv" class="banner-button">Download Now</a>
     </div>
-    <div id="cookie-snackbar" class="cookie-snackbar">
-        <div class="cookie-content">
-            This website uses cookies to store data. <a href="learn-more.html" target="_blank">Learn more</a>
-            <button onclick="acceptCookies()" style="width: 60px; height: 30px;">Accept</button>
-        </div>
-    </div>
-    <!-- Footer Section -->
+</div>
+    <div style="flex: 1;"></div>
+<div class="clearfix">
+
     <footer>
-        <p>Made with ♥️ by @flux.id</p>
+        <p>Copyright 2023 @flux.id all right reserved.</p>
     </footer>
+    </div>
     </body>
     <script> 
+        // Smooth scroll script
+        document.addEventListener("DOMContentLoaded", function () {
+            var links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
 
+                    var targetId = this.getAttribute('href').substring(1);
+                    var targetElement = document.getElementById(targetId);
+
+                    window.scrollTo({
+                        top: targetElement.offsetTop - document.querySelector('header').offsetHeight,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
     function buttonClicked(buttonName) {
-            if (buttonName === 'Button 2') {
+            if (buttonName === 'null') {
                 window.location.href = 'https://discord.gg/B7Mz5nucvv';
             }
             if (buttonName === 'Button 1') {
@@ -315,24 +334,24 @@
         }
     });
     
-    function hasAcceptedCookies() {
-        // Check if the user has accepted cookies (you can use cookies or localStorage for this)
-        // Return true if cookies are accepted, false otherwise
-        return localStorage.getItem("cookiesAccepted") === "true";
-    }
-    
-    function showCookieSnackbar() {
-        var snackbar = document.getElementById("cookie-snackbar");
-        snackbar.style.display = "block";
-    }
-    
-    function acceptCookies() {
-        // Set a flag indicating that the user has accepted cookies (you can use cookies or localStorage for this)
-        localStorage.setItem("cookiesAccepted", "true");
-    
-        // Hide the snackbar
-        document.getElementById("cookie-snackbar").style.display = "none";
-    }
-    
+    document.addEventListener("DOMContentLoaded", function () {
+            var greetingElement = document.getElementById("greeting");
+
+            // Get the current local time
+            var currentTime = new Date().getHours();
+
+            // Set the greeting based on the current time
+            var greeting;
+            if (currentTime >= 6 && currentTime < 12) {
+                greeting = "Good Morning";
+            } else if (currentTime >= 12 && currentTime < 18) {
+                greeting = "Good Afternoon";
+            } else {
+                greeting = "Good Evening";
+            }
+
+            // You can replace "User" with the user's actual name if available
+            greetingElement.textContent = greeting + ", User!";
+        });
     </script>
 </html>
